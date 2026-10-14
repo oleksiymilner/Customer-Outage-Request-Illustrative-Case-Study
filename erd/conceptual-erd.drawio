@@ -1,0 +1,70 @@
+<mxfile host="Electron">
+  <diagram name="Field Service ERD" id="fs-erd">
+    <mxGraphModel dx="2946" dy="2552" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;fontStyle=1;fontSize=16;align=left;" value="DEMO: conceptual ERD (core entities)" vertex="1">
+          <mxGeometry height="30" width="500" x="40" y="-770" as="geometry" />
+        </mxCell>
+        <mxCell id="act" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=12;" value="&lt;b&gt;Activity&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 9px;&quot; color=&quot;#666666&quot;&gt;activity&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="160" x="280" y="-480" as="geometry" />
+        </mxCell>
+        <mxCell id="ws" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=12;" value="&lt;b&gt;Work Skill&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot; size=&quot;1&quot;&gt;work_skill&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="160" x="640" y="-720" as="geometry" />
+        </mxCell>
+        <mxCell id="route" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=12;" value="&lt;b&gt;Route&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 9px;&quot; color=&quot;#666666&quot;&gt;route&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="160" x="640" y="-600" as="geometry" />
+        </mxCell>
+        <mxCell id="inv" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=12;" value="&lt;b&gt;Inventory&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 9px;&quot; color=&quot;#666666&quot;&gt;inventory&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="160" x="640" y="-480" as="geometry" />
+        </mxCell>
+        <mxCell id="sr" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=12;" value="&lt;b&gt;Service Request&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 9px;&quot; color=&quot;#666666&quot;&gt;service_request&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="160" x="640" y="-360" as="geometry" />
+        </mxCell>
+        <mxCell id="usr" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=12;" value="&lt;b&gt;User&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 9px;&quot; color=&quot;#666666&quot;&gt;user&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="160" x="1230" y="-465" as="geometry" />
+        </mxCell>
+        <mxCell id="res" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=12;" value="&lt;b&gt;Resource&amp;nbsp;&lt;/b&gt;&lt;div&gt;&lt;b&gt;(Technician or Bucket)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 9px;&quot; color=&quot;#666666&quot;&gt;resource&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="180" x="960" y="-460" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="route" style="html=1;rounded=0;startArrow=ERzeroToOne;endArrow=ERzeroToMany;startFill=0;endFill=0;fontSize=10;labelBackgroundColor=#FFFFFF;" target="act" value="contains">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="res" style="html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;fontSize=10;labelBackgroundColor=#FFFFFF;" target="route" value="has">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="act" style="html=1;rounded=0;startArrow=ERzeroToMany;endArrow=ERzeroToMany;startFill=0;endFill=0;fontSize=10;labelBackgroundColor=#FFFFFF;" target="ws" value="requires&amp;nbsp;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="res" style="html=1;rounded=0;startArrow=ERzeroToMany;endArrow=ERzeroToMany;startFill=0;endFill=0;fontSize=10;labelBackgroundColor=#FFFFFF;" target="ws" value="has&amp;nbsp;&lt;div&gt;&lt;br&gt;&lt;/div&gt;">
+          <mxGeometry relative="1" x="-0.0459" y="7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="act" style="html=1;rounded=0;startArrow=ERzeroToOne;endArrow=ERzeroToMany;startFill=0;endFill=0;fontSize=10;labelBackgroundColor=#FFFFFF;" target="inv" value="holds">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="res" style="html=1;rounded=0;startArrow=ERzeroToOne;endArrow=ERzeroToMany;startFill=0;endFill=0;fontSize=10;labelBackgroundColor=#FFFFFF;" target="inv" value="holds">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="act" style="html=1;rounded=0;startArrow=ERzeroToOne;endArrow=ERzeroToMany;startFill=0;endFill=0;fontSize=10;labelBackgroundColor=#FFFFFF;" target="sr" value="is raised for">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="res" style="html=1;rounded=0;startArrow=ERzeroToOne;endArrow=ERzeroToMany;startFill=0;endFill=0;fontSize=10;labelBackgroundColor=#FFFFFF;" target="sr" value="relates to">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="K6ElprbU_8vSwZSv8MgZ-1" edge="1" parent="1" style="html=1;rounded=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;fontSize=10;labelBackgroundColor=#FFFFFF;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.25;exitDx=0;exitDy=0;" value="has">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1200" y="-435" />
+              <mxPoint x="1230" y="-435" />
+            </Array>
+            <mxPoint x="1140" y="-432.5" as="sourcePoint" />
+            <mxPoint x="1230" y="-425" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
