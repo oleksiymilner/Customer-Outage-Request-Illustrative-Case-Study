@@ -2,7 +2,7 @@
 
 An end-to-end system analysis of a common field service scenario, modeled as a business process, a data model and an API contract. All names and data are illustrative; no real company data is used.
 
-**Author:** Oleksiy Milner · [LinkedIn](https://www.linkedin.com/in/oleksiymilner-240a3969)
+**Author:** Oleksiy Milner · [LinkedIn](https://www.linkedin.com/in/oleksiy-milner-240a3969/)
 
 ## Scenario
 
