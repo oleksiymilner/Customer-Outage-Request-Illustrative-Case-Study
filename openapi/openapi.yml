@@ -1,0 +1,134 @@
+openapi: 3.0.3
+info:
+  title: DEMO (example)
+  version: 1.0.0
+servers:
+  - url: https://api.example.com/rest/v1
+security:
+  - bearerAuth: []
+paths:
+  /activities:
+    post:
+      summary: Create an activity
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActivityCreate'
+      responses:
+        '201':
+          description: Activity created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Activity'
+        '400':
+          description: Invalid request body
+        '401':
+          description: Missing or invalid token
+        '404':
+          description: Resource not found  
+  /activities/{activityId}:
+    get:
+      summary: Get an activity by ID
+      parameters:
+        - name: activityId
+          in: path
+          required: true
+          schema:
+            type: integer
+            example: 125666
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Activity'
+        '401':
+          description: Missing or invalid token
+        '404':
+          description: Activity not found
+    patch:
+      summary: Update activity (reassign or change status)
+      parameters:
+        - name: activityId
+          in: path
+          required: true
+          schema:
+            type: integer
+            example: 125666
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActivityUpdate'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Activity'
+        '400':
+          description: Invalid request body
+        '401':
+          description: Missing or invalid token
+        '404':
+          description: Activity or resource not found
+        '422':
+          description: Resource does not have the required work skill
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    ActivityCreate:
+      type: object
+      required: [activityType, date, resourceId]
+      properties:
+        activityType:
+          description: Type of performing activity
+          type: string
+          example: repair
+        date:
+          description: Activity's creation date
+          type: string
+          format: date
+        resourceId:
+          description: ID of the resource (bucket or technician) the activity is assigned to
+          type: integer
+          example: 25
+    ActivityUpdate:
+      type: object
+      minProperties: 1
+      properties:
+        resourceId:
+          description: ID of the resource (bucket or technician) to reassign the activity to
+          type: integer
+          example: 25
+        status:
+          type: string
+          enum: [pending, started, completed]
+    Activity:
+      allOf:
+        - $ref: '#/components/schemas/ActivityCreate'
+        - type: object
+          properties:
+            activityId:
+              type: integer
+              readOnly: true
+              example: 125666
+            status:
+              type: string
+              readOnly: true
+              enum: [pending, started, completed]
+            workSkill:
+               type: string
+               readOnly: true
+               example: INTERNET_REPAIR
+              
