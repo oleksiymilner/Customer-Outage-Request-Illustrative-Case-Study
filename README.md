@@ -19,6 +19,7 @@ A customer reports an internet outage. The provider verifies the contract and SL
 | OpenAPI 3.0 spec | Create and update activities, JWT security | Swagger Editor | [`openapi/`](openapi/) |
 | Requirements document | Requirements document (user stories, acceptance criteria, traceability)| .md | [`requirements/requirements.md`](https://github.com/oleksiymilner/Customer-Outage-Request-Illustrative-Case-Study/blob/main/requirements/requirements.md) |
 | Elicitation plan| Elicitation plan| .md | [`requirements/elicitation-plan.md`](https://github.com/oleksiymilner/Customer-Outage-Request-Illustrative-Case-Study/blob/main/requirements/elicitation-plan.md) |
+| Change request  | Change request CR-001 (impact analysis for the manual-assignment simplification)| .md | [`requirements/change-request-CR-001.md`](https://github.com/oleksiymilner/Customer-Outage-Request-Illustrative-Case-Study/blob/main/requirements/change-request-CR-001.md) |
 
 
 ### Business process (BPMN)
@@ -78,6 +79,7 @@ Endpoints: `POST /activities`, `GET /activities/{activityId}`, `PATCH /activitie
 ├── requirements/
 │   ├── requirements.md
 │   ├── elicitation-plan.md
+│   ├── change-request-CR-001.md
 
 ```
 
