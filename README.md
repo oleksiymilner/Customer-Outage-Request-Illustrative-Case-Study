@@ -56,6 +56,12 @@ Endpoints: `POST /activities`, `GET /activities/{activityId}`, `PATCH /activitie
 | Perform repair / follow-up visit | `PATCH /activities/{id}` (`status`) | Activity |
 | Complete activity | `PATCH /activities/{id}` (`status: completed`) | Activity |
 
+## Requirements and analysis documents
+
+- [Requirements](requirements/requirements.md): user stories, acceptance criteria, traceability
+- [Elicitation plan](requirements/elicitation-plan.md): stakeholders, techniques, key questions
+- [Change request CR-001](requirements/change-request-CR-001.md): impact analysis for the manual-assignment simplification
+
 ## Assumptions and scope
 
 - The SLA check and technician matching are internal business rules and are not modeled in the API demo.
