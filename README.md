@@ -17,7 +17,9 @@ A customer reports an internet outage. The provider verifies the contract and SL
 | BPMN process | Roles, SLA decision, escalation, customer confirmation | Camunda Modeler | [`bpmn/`](bpmn/) |
 | Conceptual ERD | Core entities and relationships | draw.io | [`erd/`](erd/) |
 | OpenAPI 3.0 spec | Create and update activities, JWT security | Swagger Editor | [`openapi/`](openapi/) |
-| Requirements document | Requirements document (user stories, acceptance criteria, traceability)| .md | [`requirements/`](https://github.com/oleksiymilner/Customer-Outage-Request-Illustrative-Case-Study/blob/main/requirements/requirements.md) |
+| Requirements document | Requirements document (user stories, acceptance criteria, traceability)| .md | [`requirements/requirements.md`](https://github.com/oleksiymilner/Customer-Outage-Request-Illustrative-Case-Study/blob/main/requirements/requirements.md) |
+| Elicitation plan| Elicitation plan| .md | [`requirements/elicitation-plan.md`](https://github.com/oleksiymilner/Customer-Outage-Request-Illustrative-Case-Study/blob/main/requirements/elicitation-plan.md) |
+
 
 ### Business process (BPMN)
 
@@ -75,6 +77,7 @@ Endpoints: `POST /activities`, `GET /activities/{activityId}`, `PATCH /activitie
     └── swagger-editor.png
 ├── requirements/
 │   ├── requirements.md
+│   ├── elicitation-plan.md
 
 ```
 
