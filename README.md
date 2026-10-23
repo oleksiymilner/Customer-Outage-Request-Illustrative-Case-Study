@@ -73,6 +73,9 @@ Endpoints: `POST /activities`, `GET /activities/{activityId}`, `PATCH /activitie
 └── openapi/
     ├── openapi.yml
     └── swagger-editor.png
+├── requirements/
+│   ├── requirements.md
+
 ```
 
 ## How to view the files
