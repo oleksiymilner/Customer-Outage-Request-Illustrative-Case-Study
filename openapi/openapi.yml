@@ -29,6 +29,8 @@ paths:
           description: Missing or invalid token
         '404':
           description: Resource not found  
+        '422':
+          description: Resource does not have the required work skill 
   /activities/{activityId}:
     get:
       summary: Get an activity by ID
