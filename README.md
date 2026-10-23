@@ -17,6 +17,7 @@ A customer reports an internet outage. The provider verifies the contract and SL
 | BPMN process | Roles, SLA decision, escalation, customer confirmation | Camunda Modeler | [`bpmn/`](bpmn/) |
 | Conceptual ERD | Core entities and relationships | draw.io | [`erd/`](erd/) |
 | OpenAPI 3.0 spec | Create and update activities, JWT security | Swagger Editor | [`openapi/`](openapi/) |
+| Requirements document | Requirements document (user stories, acceptance criteria, traceability)| .md | [`requirements/`](https://github.com/oleksiymilner/Customer-Outage-Request-Illustrative-Case-Study/blob/main/requirements/requirements.md) |
 
 ### Business process (BPMN)
 
