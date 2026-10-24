@@ -91,6 +91,9 @@ Endpoints: `POST /activities`, `GET /activities/{activityId}`, `PATCH /activitie
 │   ├── requirements.md
 │   ├── elicitation-plan.md
 │   ├── change-request-CR-001.md
+├── uml/
+│   ├── outage-sequence.png
+│   ├── outage-sequence.puml
 
 ```
 
