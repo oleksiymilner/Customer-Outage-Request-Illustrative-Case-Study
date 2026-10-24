@@ -1,0 +1,76 @@
+@startuml outage-sequence
+title Customer Outage Request: sequence of interactions (illustrative)
+
+skinparam shadowing false
+skinparam dpi 150
+skinparam sequenceMessageAlign center
+skinparam defaultFontName Arial
+skinparam sequence {
+  ArrowColor #1F3864
+  LifeLineBorderColor #7F8FA9
+  ParticipantBorderColor #1F3864
+  ParticipantBackgroundColor #EEF2F8
+  GroupBorderColor #7F8FA9
+}
+autonumber "<b>0"
+
+actor Customer
+actor Dispatcher
+actor Technician
+participant "Process\n(Camunda 8)" as Proc
+participant "DEMO Service\nREST API" as API
+database "Database" as DB
+
+== Request intake (US-1, US-2) ==
+Customer -> Proc : Report problem (service request)
+Proc -> Dispatcher : Check contract / SLA
+alt SLA not valid
+  Dispatcher --> Proc : Reject
+  Proc --> Customer : Request rejected, customer informed
+else SLA valid
+  Dispatcher --> Proc : Valid
+
+  == Create work in the bucket (US-3) ==
+  Proc -> API : POST /activities\n{activityType, date, resourceId = bucket}
+  API -> DB : Insert activity (status pending,\nworkSkill derived from activityType)
+  DB --> API : activityId
+  API --> Proc : 201 Created {activityId}
+
+  == Find and assign a technician (US-4, US-5, US-6) ==
+  Proc -> Proc : Find technician by skill, zone,\navailability (timer: 30 min)
+  opt No technician found within 30 minutes
+    Proc -> Dispatcher : Escalate: clarify and manually assign
+  end
+  Proc -> API : PATCH /activities/{activityId}\n{resourceId = technicianId}
+  API -> DB : Check technician holds required skill
+  alt Technician holds the skill
+    API -> DB : Update resourceId
+    API --> Proc : 200 OK
+  else Technician lacks the skill (RULE-3)
+    API --> Proc : 422 Unprocessable Entity (activity unchanged)
+    Proc -> Dispatcher : Skills Mismatch: clarify and manually assign
+    note right of Proc
+      Known simplification: the manual task does
+      not assign a technician yet (see CR-001).
+    end note
+  end
+
+  == Repair and completion (US-7, US-8) ==
+  Proc -> API : PATCH /activities/{activityId}\n{status = started}
+  API -> DB : Update status
+  API --> Proc : 200 OK
+  Proc -> Technician : Perform repair
+  loop While a spare part is missing
+    Technician --> Proc : Spare part missing
+    Proc -> Technician : Schedule follow-up visit
+  end
+  Technician --> Proc : Repair completed
+  Proc --> Customer : Repair completed
+  Customer -> Proc : Confirm completion
+  Proc -> API : PATCH /activities/{activityId}\n{status = completed}
+  API -> DB : Update status
+  API --> Proc : 200 OK
+  Proc --> Customer : Request resolved
+end
+
+@enduml
