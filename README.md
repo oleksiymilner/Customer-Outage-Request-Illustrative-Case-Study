@@ -15,6 +15,7 @@ A customer reports an internet outage. The provider verifies the contract and SL
 | Artifact | What it shows | Tool | Files |
 |---|---|---|---|
 | BPMN process | Roles, SLA decision, escalation, customer confirmation | Camunda Modeler | [`bpmn/`](bpmn/) |
+| Sequence Diagram | Sequence diagram (PlantUML) | PlantUML | [`uml/`](https://github.com/oleksiymilner/Customer-Outage-Request-Illustrative-Case-Study/tree/main/uml) |
 | Conceptual ERD | Core entities and relationships | draw.io | [`erd/`](erd/) |
 | OpenAPI 3.0 spec | Create and update activities, JWT security | Swagger Editor | [`openapi/`](openapi/) |
 | Requirements document | Requirements document (user stories, acceptance criteria, traceability)| .md | [`requirements/requirements.md`](https://github.com/oleksiymilner/Customer-Outage-Request-Illustrative-Case-Study/blob/main/requirements/requirements.md) |
@@ -25,6 +26,10 @@ A customer reports an internet outage. The provider verifies the contract and SL
 ### Business process (BPMN)
 
 ![BPMN process](bpmn/customer-outage-request.png)
+
+### Sequence diagram (PlantUML)
+
+![Sequence diagram](https://github.com/oleksiymilner/Customer-Outage-Request-Illustrative-Case-Study/blob/main/uml/outage-sequence.png)
 
 ### Data model (ERD)
 
